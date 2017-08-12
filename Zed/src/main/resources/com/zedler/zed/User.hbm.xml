@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 12, 2017 12:37:35 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="Zedler" name="com.zedler.entity.User" optimistic-lock="version" table="user">
+    <id name="userId" type="java.lang.Integer">
+      <column name="User_ID"/>
+      <generator class="identity"/>
+    </id>
+    <property name="userFirstName" type="string">
+      <column length="50" name="UserFirstName" not-null="true"/>
+    </property>
+    <property name="userSecondName" type="string">
+      <column length="50" name="UserSecondName" not-null="true"/>
+    </property>
+    <property name="userName" type="string">
+      <column length="50" name="UserName" unique="true"/>
+    </property>
+    <property name="userMail" type="string">
+      <column length="50" name="UserMail" not-null="true"/>
+    </property>
+    <property name="userPassword" type="string">
+      <column length="25" name="UserPassword" not-null="true"/>
+    </property>
+    <property name="userAboutMe" type="string">
+      <column length="4000" name="UserAboutMe"/>
+    </property>
+    <property name="userCountry" type="string">
+      <column length="100" name="UserCountry" not-null="true"/>
+    </property>
+    <property name="userCoinNo" type="java.lang.Integer">
+      <column name="UserCoinNo"/>
+    </property>
+    <property name="userLongitude" type="java.lang.Double">
+      <column name="UserLongitude" precision="22" scale="0"/>
+    </property>
+    <property name="userLatitude" type="java.lang.Double">
+      <column name="UserLatitude" precision="22" scale="0"/>
+    </property>
+    <property name="userPic" type="string">
+      <column length="250" name="UserPic"/>
+    </property>
+    <property name="userCurrentLocation" type="string">
+      <column length="250" name="UserCurrentLocation"/>
+    </property>
+    <property name="userStatus" type="string">
+      <column length="4000" name="UserStatus"/>
+    </property>
+    <property name="fakeHomeLocLangitude" type="string">
+      <column length="100" name="fake_home_loc_langitude" not-null="true"/>
+    </property>
+    <property name="fakeHomeLocLatitude" type="string">
+      <column length="100" name="fake_home_loc_latitude" not-null="true"/>
+    </property>
+    <property name="isLive" type="byte">
+      <column name="is_live" not-null="true"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="followshipsForUserFrom" table="followship">
+      <key>
+        <column name="UserFrom" not-null="true"/>
+      </key>
+      <one-to-many class="com.zedler.entity.Followship"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="settingses" table="settings">
+      <key>
+        <column name="User_ID" not-null="true"/>
+      </key>
+      <one-to-many class="com.zedler.entity.Settings"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="friendshipsForUserTo" table="friendship">
+      <key>
+        <column name="UserTo" not-null="true"/>
+      </key>
+      <one-to-many class="com.zedler.entity.Friendship"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="friendshipsForUserFrom" table="friendship">
+      <key>
+        <column name="UserFrom" not-null="true"/>
+      </key>
+      <one-to-many class="com.zedler.entity.Friendship"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="videos" table="video">
+      <key>
+        <column name="User_ID" not-null="true"/>
+      </key>
+      <one-to-many class="com.zedler.entity.Video"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="followshipsForUserTo" table="followship">
+      <key>
+        <column name="UserTo" not-null="true"/>
+      </key>
+      <one-to-many class="com.zedler.entity.Followship"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="settingscontrolsForUserTo" table="settingscontrol">
+      <key>
+        <column name="UserTo" not-null="true"/>
+      </key>
+      <one-to-many class="com.zedler.entity.Settingscontrol"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="settingscontrolsForUserFrom" table="settingscontrol">
+      <key>
+        <column name="UserFrom" not-null="true"/>
+      </key>
+      <one-to-many class="com.zedler.entity.Settingscontrol"/>
+    </set>
+  </class>
+</hibernate-mapping>
