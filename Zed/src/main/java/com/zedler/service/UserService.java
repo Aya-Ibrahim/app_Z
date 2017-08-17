@@ -5,14 +5,18 @@
  */
 package com.zedler.service;
 
+import com.zedler.entity.TestEntity;
 import com.zedler.entity.User;
 import com.zedler.exception.DataBaseConnectionException;
 import com.zedler.managment.UserManager;
 import com.zedler.sessionHandling.SessionHandler;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.Response;
 import org.hibernate.Session;
 
 /**
@@ -28,18 +32,17 @@ public class UserService {
     {
     return "x";
     }
-    @GET
-    @Path("/login/{username}/{password}")
+    @POST
+    @Path("/login")
+    @Consumes("application/json")
     @Produces("application/json")
-    public String login(@PathParam("username") String userName, @PathParam("password") String password) {
+    public String login( User u) {
         SessionHandler shandler = new SessionHandler();
         Session session = shandler.openAndGetSession();
         String result = "{\"result\":\"";
 
         try {
-            User u = new User();
-            u.setUserName(userName);
-            u.setUserPassword(password);
+           
             if (UserManager.getInstance().login(u, session)) {
                 result += "Pass \"}";
             } else {
