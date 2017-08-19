@@ -7,8 +7,11 @@ package com.zedler.dao;
 
 import com.zedler.entity.User;
 import com.zedler.exception.DataBaseConnectionException;
+import com.zedler.sessionHandling.HibernateUtilCLass;
+import com.zedler.sessionHandling.SessionHandler;
 import java.util.List;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 /**
  *
@@ -28,7 +31,7 @@ public class UserDao {
     public boolean validateLogin(User u, Session session) throws DataBaseConnectionException {
         try {
             List<User> usrs = session.createQuery("from User u where u.userName = '" + u.getUserName()
-                    + "' and u.userPassword ='" + u.getUserPassword()+"'").list();
+                    + "' and u.userPassword ='" + u.getUserPassword() + "'").list();
             return (usrs.size() > 0);
 
         } catch (Exception ex) {
@@ -37,4 +40,20 @@ public class UserDao {
         }
     }
 
+    public boolean register(User u, Session session) throws DataBaseConnectionException {
+        try {
+            session.persist(u);
+            session.getTransaction().commit();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            if (session.getTransaction() != null) {
+                session.getTransaction().rollback();
+
+            }
+            throw e;
+        } finally {
+            session.close();
+        }
+    }
 }

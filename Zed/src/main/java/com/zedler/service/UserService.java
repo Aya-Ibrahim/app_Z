@@ -10,6 +10,7 @@ import com.zedler.entity.User;
 import com.zedler.exception.DataBaseConnectionException;
 import com.zedler.managment.UserManager;
 import com.zedler.sessionHandling.SessionHandler;
+import com.zedler.validator.UserValidator;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -28,21 +29,21 @@ public class UserService {
 
     @GET
     @Path("test")
-    public String test()
-    {
-    return "x";
+    public String test() {
+        return "x";
     }
+
     @POST
     @Path("/login")
     @Consumes("application/json")
     @Produces("application/json")
-    public String login( User u) {
+    public String login(User u) {
         SessionHandler shandler = new SessionHandler();
         Session session = shandler.openAndGetSession();
         String result = "{\"result\":\"";
 
         try {
-           
+
             if (UserManager.getInstance().login(u, session)) {
                 result += "Pass \"}";
             } else {
@@ -55,4 +56,33 @@ public class UserService {
         return result;
     }
 
+    @POST
+    @Path("/register")
+    @Consumes("application/json")
+    @Produces("application/json")
+    public String register(User u) {
+        SessionHandler shandler = new SessionHandler();
+        Session session = shandler.openAndGetSession();
+        String result = "{\"result\":\"";
+
+        try {
+            String validationRes = UserValidator.getInstance().validate(u);
+            if (validationRes.equals(UserValidator.PASS)) {
+                if (UserManager.getInstance().register(u, session)) {
+                    result += "Pass \"}";
+                } else {
+                    result += "Fail\"}";
+                }
+            } else {
+                result+="\"Fail "+validationRes.substring(validationRes.indexOf(UserValidator.FAIL))+"\"}";
+            }
+        } catch (DataBaseConnectionException ex) {
+            result += " DB connect Fail\"}";
+        }
+        catch (Exception ex)
+        {
+        result+=" "+ex.getMessage()+"\"}";
+        }
+        return result;
+    }
 }

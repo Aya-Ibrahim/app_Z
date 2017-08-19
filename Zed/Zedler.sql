@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Aug 15, 2017 at 12:20 AM
+-- Generation Time: Aug 19, 2017 at 01:41 PM
 -- Server version: 10.1.10-MariaDB
 -- PHP Version: 7.0.2
 
@@ -164,16 +164,16 @@ CREATE TABLE `user` (
   `UserMail` varchar(50) NOT NULL,
   `UserPassword` varchar(25) NOT NULL,
   `UserAboutMe` varchar(4000) DEFAULT NULL,
-  `UserCountry` varchar(100) NOT NULL,
+  `UserCountry` varchar(100) DEFAULT NULL,
   `UserCoinNo` int(11) DEFAULT NULL,
   `UserLongitude` double DEFAULT NULL,
   `UserLatitude` double DEFAULT NULL,
   `UserPic` varchar(250) DEFAULT NULL,
   `UserCurrentLocation` varchar(250) DEFAULT NULL,
   `UserStatus` varchar(4000) DEFAULT NULL,
-  `fake_home_loc_langitude` varchar(100) NOT NULL,
-  `fake_home_loc_latitude` varchar(100) NOT NULL,
-  `is_live` tinyint(4) NOT NULL
+  `fake_home_loc_langitude` varchar(100) DEFAULT NULL,
+  `fake_home_loc_latitude` varchar(100) DEFAULT NULL,
+  `is_live` tinyint(4) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -185,7 +185,9 @@ INSERT INTO `user` (`User_ID`, `UserFirstName`, `UserSecondName`, `UserName`, `U
 (2, 'Sherief', 'Mohamed', 'shm', 'sherief.mohamed@yahoo.com', '123456789', NULL, '', NULL, 31.343849, 30.067744, NULL, NULL, 'Working ...', '', '', 0),
 (3, 'kareem', 'mohamed', 'kimo', 'k.mohamed@yahoo.com', '123456789', 'asdasd', '', NULL, 31.346653, 30.060442, NULL, NULL, 'Hello !', '', '', 0),
 (4, 'ahmed', 'mostafa', 'ahmed.mostafa', 'ah_m@yahoo.com', '123456789', 'ðŸŽŠðŸŽ‰', '', NULL, 31.351255, 30.060089, NULL, NULL, 'Ramadan kareem', '', '', 0),
-(5, 'ahmed', 'sasasa', 'sdasaasf', 'mmom@yahoo.com', '123456789', 'ðŸ˜Ž', '', NULL, 31.345138, 30.059642, NULL, NULL, 'ramadan kareem', '', '', 0);
+(5, 'ahmed', 'sasasa', 'sdasaasf', 'mmom@yahoo.com', '123456789', 'ðŸ˜Ž', '', NULL, 31.345138, 30.059642, NULL, NULL, 'ramadan kareem', '', '', 0),
+(6, 'aya', 'ikf', 'aya', 'a@rr.com', 'test123', NULL, 'Cairo', NULL, NULL, NULL, NULL, NULL, NULL, '5432', '2313', 1),
+(8, 'aya', 'ikf', 'aya11', 'a@xrr.com', 'test123', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -277,7 +279,7 @@ ALTER TABLE `settings`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `User_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `User_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- Constraints for dumped tables
 --

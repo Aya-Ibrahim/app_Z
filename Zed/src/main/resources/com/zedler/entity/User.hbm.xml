@@ -26,7 +26,7 @@
       <column length="4000" name="UserAboutMe"/>
     </property>
     <property name="userCountry" type="string">
-      <column length="100" name="UserCountry" not-null="true"/>
+      <column length="100" name="UserCountry" />
     </property>
     <property name="userCoinNo" type="java.lang.Integer">
       <column name="UserCoinNo"/>
@@ -47,13 +47,13 @@
       <column length="4000" name="UserStatus"/>
     </property>
     <property name="fakeHomeLocLangitude" type="string">
-      <column length="100" name="fake_home_loc_langitude" not-null="true"/>
+      <column length="100" name="fake_home_loc_langitude" />
     </property>
     <property name="fakeHomeLocLatitude" type="string">
-      <column length="100" name="fake_home_loc_latitude" not-null="true"/>
+      <column length="100" name="fake_home_loc_latitude" />
     </property>
     <property name="isLive" type="byte">
-      <column name="is_live" not-null="true"/>
+      <column name="is_live" />
     </property>
     <set fetch="select" inverse="true" lazy="true" name="followshipsForUserFrom" table="followship">
       <key>

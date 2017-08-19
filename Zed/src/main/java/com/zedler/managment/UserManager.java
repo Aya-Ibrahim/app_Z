@@ -34,4 +34,8 @@ public class UserManager extends AbstractManager<User> {
         }
         return userManager;
     }
+
+    public boolean register(User u, Session session)throws DataBaseConnectionException {
+         return UserDao.getInstance().register(u, session);
+      }
 }
