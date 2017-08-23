@@ -10,7 +10,7 @@ public class Settings  implements java.io.Serializable,Entity {
 
 
      private Integer settingsId;
-     private User user;
+    // private User user;
      private boolean broadcasting;
      private byte followMe;
      private byte showFnameOnly;
@@ -21,7 +21,7 @@ public class Settings  implements java.io.Serializable,Entity {
     }
 
     public Settings(User user, boolean broadcasting, byte followMe, byte showFnameOnly, boolean showPpToFollowers, byte aboutMeToFollowers) {
-       this.user = user;
+     //  this.user = user;
        this.broadcasting = broadcasting;
        this.followMe = followMe;
        this.showFnameOnly = showFnameOnly;
@@ -36,13 +36,13 @@ public class Settings  implements java.io.Serializable,Entity {
     public void setSettingsId(Integer settingsId) {
         this.settingsId = settingsId;
     }
-    public User getUser() {
-        return this.user;
-    }
-    
-    public void setUser(User user) {
-        this.user = user;
-    }
+//    public User getUser() {
+//        return this.user;
+//    }
+//    
+//    public void setUser(User user) {
+//        this.user = user;
+//    }
     public boolean isBroadcasting() {
         return this.broadcasting;
     }

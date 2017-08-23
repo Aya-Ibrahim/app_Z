@@ -10,7 +10,7 @@ public class Video  implements java.io.Serializable,Entity {
 
 
      private int videoId;
-     private User user;
+   //  private User user;
      private String videoTitle;
      private Boolean videoLocationStatus;
      private Boolean videoChatStatus;
@@ -23,13 +23,13 @@ public class Video  implements java.io.Serializable,Entity {
 	
     public Video(int videoId, User user, String videoTitle, String userVideoUrl) {
         this.videoId = videoId;
-        this.user = user;
+       // this.user = user;
         this.videoTitle = videoTitle;
         this.userVideoUrl = userVideoUrl;
     }
     public Video(int videoId, User user, String videoTitle, Boolean videoLocationStatus, Boolean videoChatStatus, Integer videoViews, String userVideoUrl) {
        this.videoId = videoId;
-       this.user = user;
+      // this.user = user;
        this.videoTitle = videoTitle;
        this.videoLocationStatus = videoLocationStatus;
        this.videoChatStatus = videoChatStatus;
@@ -44,13 +44,13 @@ public class Video  implements java.io.Serializable,Entity {
     public void setVideoId(int videoId) {
         this.videoId = videoId;
     }
-    public User getUser() {
-        return this.user;
-    }
-    
-    public void setUser(User user) {
-        this.user = user;
-    }
+//    public User getUser() {
+//        return this.user;
+//    }
+//    
+//    public void setUser(User user) {
+//        this.user = user;
+//    }
     public String getVideoTitle() {
         return this.videoTitle;
     }

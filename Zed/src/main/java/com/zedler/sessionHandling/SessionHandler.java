@@ -28,7 +28,6 @@ public class SessionHandler {
         session.beginTransaction();
         return session;
     }
-
     /**
      *
      * @param session

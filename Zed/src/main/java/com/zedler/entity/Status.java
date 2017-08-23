@@ -13,7 +13,7 @@ public class Status  implements java.io.Serializable {
 
      private int statusId;
      private String statusType;
-     private Set friendships = new HashSet(0);
+    // private Set friendships = new HashSet(0);
 
     public Status() {
     }
@@ -25,7 +25,7 @@ public class Status  implements java.io.Serializable {
     public Status(int statusId, String statusType, Set friendships) {
        this.statusId = statusId;
        this.statusType = statusType;
-       this.friendships = friendships;
+     //  this.friendships = friendships;
     }
    
     public int getStatusId() {
@@ -42,13 +42,13 @@ public class Status  implements java.io.Serializable {
     public void setStatusType(String statusType) {
         this.statusType = statusType;
     }
-    public Set getFriendships() {
-        return this.friendships;
-    }
-    
-    public void setFriendships(Set friendships) {
-        this.friendships = friendships;
-    }
+//    public Set getFriendships() {
+//        return this.friendships;
+//    }
+//    
+//    public void setFriendships(Set friendships) {
+//        this.friendships = friendships;
+//    }
 
 
 

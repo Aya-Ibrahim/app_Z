@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 12, 2017 12:37:35 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="Zedler" name="com.zedler.entity.Settings" optimistic-lock="version" table="settings">
+    <id name="settingsId" type="java.lang.Integer">
+      <column name="Settings_ID"/>
+      <generator class="identity"/>
+    </id>
+    <many-to-one class="com.zedler.entity.User" fetch="select" name="user">
+      <column name="User_ID" not-null="true"/>
+    </many-to-one>
+    <property name="broadcasting" type="boolean">
+      <column name="broadcasting" not-null="true"/>
+    </property>
+    <property name="followMe" type="byte">
+      <column name="follow_me" not-null="true"/>
+    </property>
+    <property name="showFnameOnly" type="byte">
+      <column name="show_fname_only" not-null="true"/>
+    </property>
+    <property name="showPpToFollowers" type="boolean">
+      <column name="show_pp_to_followers" not-null="true"/>
+    </property>
+    <property name="aboutMeToFollowers" type="byte">
+      <column name="about_me_to_followers" not-null="true"/>
+    </property>
+  </class>
+</hibernate-mapping>

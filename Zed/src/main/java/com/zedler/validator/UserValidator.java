@@ -6,6 +6,9 @@
 package com.zedler.validator;
 
 import com.zedler.entity.User;
+import com.zedler.exception.DataBaseConnectionException;
+import com.zedler.managment.UserManager;
+import org.hibernate.Session;
 
 /**
  *
@@ -27,16 +30,22 @@ public class UserValidator {
         return userValidator;
     }
 
-    public String validate(User u) {
+    public String validate(User u,Session session) throws DataBaseConnectionException {
         String res = PASS;
         if (u.getUserFirstName() == null || u.getUserFirstName().trim().isEmpty()) {
-            res = FAIL + "fname";
+            res = FAIL + " fname";
         } else if (!EmailValidator.getInstance().validate(u.getUserMail())) {
-            res = FAIL + "mail";
+            res = FAIL + " mail";
         } else if (u.getUserSecondName() == null || u.getUserSecondName().trim().isEmpty()) {
-            res = FAIL + "sname";
+            res = FAIL + " sname";
         } else if (u.getUserPassword() == null || u.getUserPassword().length() < 6) {
-            res = FAIL + "password";
+            res = FAIL + " password";
+        } else if (u.getUserName() == null || u.getUserName().trim().isEmpty()) {
+            res = FAIL + " username";
+        }
+        else if(!UserManager.getInstance().validateUniqueUserName(u.getUserName(),session))
+        {
+         res = FAIL + " username is duplicate";
         }
         return res;
     }

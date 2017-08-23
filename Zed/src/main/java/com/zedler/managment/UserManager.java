@@ -24,8 +24,9 @@ public class UserManager extends AbstractManager<User> {
         return null;
     }
 
-    public boolean login(User u, Session session) throws DataBaseConnectionException {
+    public User login(User u, Session session) throws DataBaseConnectionException {
         return UserDao.getInstance().validateLogin(u, session);
+
     }
 
     public static UserManager getInstance() {
@@ -35,7 +36,11 @@ public class UserManager extends AbstractManager<User> {
         return userManager;
     }
 
-    public boolean register(User u, Session session)throws DataBaseConnectionException {
+    public User register(User u, Session session)throws DataBaseConnectionException {
          return UserDao.getInstance().register(u, session);
       }
+
+    public boolean validateUniqueUserName(String userName,Session session) throws DataBaseConnectionException {
+     return UserDao.getInstance().validateUniqueUserName(userName,session);
+    }
 }

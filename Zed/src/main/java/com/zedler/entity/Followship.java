@@ -10,8 +10,8 @@ public class Followship  implements java.io.Serializable,Entity {
 
 
      private FollowshipId id;
-     private User userByUserFrom;
-     private User userByUserTo;
+//     private User userByUserFrom;
+//     private User userByUserTo;
      private boolean following;
 
     public Followship() {
@@ -19,8 +19,8 @@ public class Followship  implements java.io.Serializable,Entity {
 
     public Followship(FollowshipId id, User userByUserFrom, User userByUserTo, boolean following) {
        this.id = id;
-       this.userByUserFrom = userByUserFrom;
-       this.userByUserTo = userByUserTo;
+//       this.userByUserFrom = userByUserFrom;
+//       this.userByUserTo = userByUserTo;
        this.following = following;
     }
    
@@ -31,20 +31,20 @@ public class Followship  implements java.io.Serializable,Entity {
     public void setId(FollowshipId id) {
         this.id = id;
     }
-    public User getUserByUserFrom() {
-        return this.userByUserFrom;
-    }
-    
-    public void setUserByUserFrom(User userByUserFrom) {
-        this.userByUserFrom = userByUserFrom;
-    }
-    public User getUserByUserTo() {
-        return this.userByUserTo;
-    }
-    
-    public void setUserByUserTo(User userByUserTo) {
-        this.userByUserTo = userByUserTo;
-    }
+//    public User getUserByUserFrom() {
+//        return this.userByUserFrom;
+//    }
+//    
+//    public void setUserByUserFrom(User userByUserFrom) {
+//        this.userByUserFrom = userByUserFrom;
+//    }
+//    public User getUserByUserTo() {
+//        return this.userByUserTo;
+//    }
+//    
+//    public void setUserByUserTo(User userByUserTo) {
+//        this.userByUserTo = userByUserTo;
+//    }
     public boolean isFollowing() {
         return this.following;
     }

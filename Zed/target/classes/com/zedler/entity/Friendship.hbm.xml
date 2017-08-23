@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 12, 2017 12:37:35 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="Zedler" name="com.zedler.entity.Friendship" optimistic-lock="version" table="friendship">
+    <composite-id class="com.zedler.entity.FriendshipId" name="id">
+      <key-property name="userFrom" type="int">
+        <column name="UserFrom"/>
+      </key-property>
+      <key-property name="userTo" type="int">
+        <column name="UserTo"/>
+      </key-property>
+    </composite-id>
+    <many-to-one class="com.zedler.entity.Status" fetch="select" name="status">
+      <column name="Status_ID"/>
+    </many-to-one>
+    <many-to-one class="com.zedler.entity.User" fetch="select" insert="false" name="userByUserTo" update="false">
+      <column name="UserTo" not-null="true"/>
+    </many-to-one>
+    <many-to-one class="com.zedler.entity.User" fetch="select" insert="false" name="userByUserFrom" update="false">
+      <column name="UserFrom" not-null="true"/>
+    </many-to-one>
+    <property name="fsRequestTime" type="timestamp">
+      <column length="19" name="FS_RequestTime" unique="true"/>
+    </property>
+  </class>
+</hibernate-mapping>

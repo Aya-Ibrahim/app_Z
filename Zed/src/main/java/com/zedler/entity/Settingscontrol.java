@@ -10,8 +10,8 @@ public class Settingscontrol  implements java.io.Serializable,Entity {
 
 
      private SettingscontrolId id;
-     private User userByUserTo;
-     private User userByUserFrom;
+//     private User userByUserTo;
+//     private User userByUserFrom;
      private boolean scGps;
      private boolean scStatus;
 
@@ -20,8 +20,8 @@ public class Settingscontrol  implements java.io.Serializable,Entity {
 
     public Settingscontrol(SettingscontrolId id, User userByUserTo, User userByUserFrom, boolean scGps, boolean scStatus) {
        this.id = id;
-       this.userByUserTo = userByUserTo;
-       this.userByUserFrom = userByUserFrom;
+//       this.userByUserTo = userByUserTo;
+//       this.userByUserFrom = userByUserFrom;
        this.scGps = scGps;
        this.scStatus = scStatus;
     }
@@ -33,20 +33,20 @@ public class Settingscontrol  implements java.io.Serializable,Entity {
     public void setId(SettingscontrolId id) {
         this.id = id;
     }
-    public User getUserByUserTo() {
-        return this.userByUserTo;
-    }
-    
-    public void setUserByUserTo(User userByUserTo) {
-        this.userByUserTo = userByUserTo;
-    }
-    public User getUserByUserFrom() {
-        return this.userByUserFrom;
-    }
-    
-    public void setUserByUserFrom(User userByUserFrom) {
-        this.userByUserFrom = userByUserFrom;
-    }
+//    public User getUserByUserTo() {
+//        return this.userByUserTo;
+//    }
+//    
+//    public void setUserByUserTo(User userByUserTo) {
+//        this.userByUserTo = userByUserTo;
+//    }
+//    public User getUserByUserFrom() {
+//        return this.userByUserFrom;
+//    }
+//    
+//    public void setUserByUserFrom(User userByUserFrom) {
+//        this.userByUserFrom = userByUserFrom;
+//    }
     public boolean isScGps() {
         return this.scGps;
     }

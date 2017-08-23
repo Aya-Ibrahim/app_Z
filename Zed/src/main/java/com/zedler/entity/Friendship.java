@@ -12,8 +12,8 @@ public class Friendship  implements java.io.Serializable,Entity {
 
      private FriendshipId id;
      private Status status;
-     private User userByUserTo;
-     private User userByUserFrom;
+//     private User userByUserTo;
+//     private User userByUserFrom;
      private Date fsRequestTime;
 
     public Friendship() {
@@ -22,14 +22,14 @@ public class Friendship  implements java.io.Serializable,Entity {
 	
     public Friendship(FriendshipId id, User userByUserTo, User userByUserFrom) {
         this.id = id;
-        this.userByUserTo = userByUserTo;
-        this.userByUserFrom = userByUserFrom;
+//        this.userByUserTo = userByUserTo;
+//        this.userByUserFrom = userByUserFrom;
     }
     public Friendship(FriendshipId id, Status status, User userByUserTo, User userByUserFrom, Date fsRequestTime) {
        this.id = id;
        this.status = status;
-       this.userByUserTo = userByUserTo;
-       this.userByUserFrom = userByUserFrom;
+//       this.userByUserTo = userByUserTo;
+//       this.userByUserFrom = userByUserFrom;
        this.fsRequestTime = fsRequestTime;
     }
    
@@ -47,20 +47,20 @@ public class Friendship  implements java.io.Serializable,Entity {
     public void setStatus(Status status) {
         this.status = status;
     }
-    public User getUserByUserTo() {
-        return this.userByUserTo;
-    }
-    
-    public void setUserByUserTo(User userByUserTo) {
-        this.userByUserTo = userByUserTo;
-    }
-    public User getUserByUserFrom() {
-        return this.userByUserFrom;
-    }
-    
-    public void setUserByUserFrom(User userByUserFrom) {
-        this.userByUserFrom = userByUserFrom;
-    }
+//    public User getUserByUserTo() {
+//        return this.userByUserTo;
+//    }
+//    
+//    public void setUserByUserTo(User userByUserTo) {
+//        this.userByUserTo = userByUserTo;
+//    }
+//    public User getUserByUserFrom() {
+//        return this.userByUserFrom;
+//    }
+//    
+//    public void setUserByUserFrom(User userByUserFrom) {
+//        this.userByUserFrom = userByUserFrom;
+//    }
     public Date getFsRequestTime() {
         return this.fsRequestTime;
     }
